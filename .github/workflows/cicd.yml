@@ -2,6 +2,17 @@ name: CICD
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "Please select option for deployment"
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
+      
 
 jobs:
   code:
@@ -25,6 +36,7 @@ jobs:
         run: echo "Testing done"
         
   deploy:
+    if: inputs.environment == 'dev'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
