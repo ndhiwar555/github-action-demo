@@ -5,7 +5,7 @@ on:
     inputs:
       environment:
         description: "Please select option for deployment"
-        default: 'dev'
+        default: 'uat'
         required: true
         type: choice
         options:
