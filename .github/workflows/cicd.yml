@@ -11,18 +11,21 @@ jobs:
         run: echo "code checkout from github"
         
   build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: build image
         run: echo "build docker image"
         
   test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: run testcases
         run: echo "Testing done"
         
   deploy:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: deploy changes
