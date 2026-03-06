@@ -12,3 +12,13 @@ jobs:
 
       - name: say hello to user
         run: echo "Hello $USER"
+
+  smile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say smile
+        run: echo "smile"
+
+      - name: say cheese
+        run: echo "cheese"
+        
